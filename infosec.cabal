@@ -1,0 +1,45 @@
+cabal-version:   3.4
+name:            infosec
+version:         0.1.0.0
+build-type:      Simple
+
+common warnings
+    ghc-options: -Wall -Werror -Wcompat
+
+library
+    import:           warnings
+
+    hs-source-dirs:   lib
+    exposed-modules:  
+        Lab_1.CaesarsCipher
+        Lab_1.PlayfairCipher
+    other-modules:
+        Utils
+
+    default-language: GHC2024
+    build-depends:    
+        base ^>=4.20.0.0,
+        containers
+
+common tests
+    import:           warnings
+
+    default-language: GHC2024
+    build-depends:
+        base ^>=4.20.0.0,
+
+        infosec,
+
+        hspec,
+        QuickCheck,
+
+test-suite infosec-test-lab-1
+    import:           tests
+
+    main-is:          Spec.hs
+    hs-source-dirs:   test/Lab_1/
+    other-modules: 
+        CaesarsCipherSpec
+        PlayfairCipherSpec
+
+    type:             exitcode-stdio-1.0
