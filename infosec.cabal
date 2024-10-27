@@ -1,0 +1,39 @@
+cabal-version:   3.4
+name:            infosec
+version:         0.1.0.0
+build-type:      Simple
+
+library
+    hs-source-dirs:   lib
+    exposed-modules:  
+        Labs.Caesars
+        Labs.Playfair
+        Labs.Vigenere
+        Labs.DES
+        Labs.RSA
+    other-modules:
+        Math
+        Numeric.Extra
+        Word.Conversion
+        Data.List.Extra
+        Data.ByteString.Conversion
+        System.Random.Extra
+
+    default-language: GHC2021
+    build-depends:    
+        base ^>= 4.17.2.1,
+        random,
+        text,
+        bytestring,
+        containers,
+
+    ghc-options: 
+        -Wall
+        -- -Werror
+        -Wno-name-shadowing
+        -fwrite-ide-info
+        -hiedir=.hie
+    default-extensions: 
+        Strict
+        OverloadedRecordDot
+        DuplicateRecordFields
